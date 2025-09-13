@@ -1,0 +1,314 @@
+<!DOCTYPE html        :root {
+            --primary: #FF00FF;
+            --primary-dark: #0A0011;
+            --background: #000000;
+            --glow: rgba(255, 0, 255, 0.15);
+        }
+
+        body {
+            background: var(--background);
+            color: #ffffff;
+            font-family: 'Space Mono', monospace;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWCSA - Coming Soon</title>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF00FF;
+            --primary-dark: #1A0033;
+            --background: #0A0011;
+            --glow: rgba(143, 0, 143, 0.2);
+        }
+
+        body {
+            background: var(--background);
+            color: #ffffff;
+            font-family: 'Space Mono', monospace;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at center, var(--primary-dark) 0%, var(--background) 100%),
+                        url("data:image/svg+xml,%3Csvg width='2' height='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='white' opacity='0.15'/%3E%3C/svg%3E");
+            animation: twinkle 8s infinite linear;
+        }
+
+        .telescope {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--glow);
+            border-radius: 50%;
+            animation: rotateSlow 20s infinite linear;
+        }
+
+        .telescope::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            border: 1px solid rgba(255, 0, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            height: 180px;
+            transform: translate(-50%, -50%);
+            background: url('logo.png') no-repeat center center;
+            background-size: contain;
+            filter: drop-shadow(0 0 15px var(--glow));
+        }
+
+        .loading-ring {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, 
+                rgba(103, 58, 183, 0.1) 0%,
+                rgba(103, 58, 183, 0.2) 100%
+            );
+            box-shadow: 0 0 30px rgba(103, 58, 183, 0.1);
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -5px;
+            left: 50%;
+            transform-origin: 0 105px;
+            animation: rotate 2s linear infinite;
+        }
+
+        .particle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #9C27B0;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #9C27B0, 0 0 40px #9C27B0;
+        }
+
+        .trail {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(15px);
+        }
+
+        .trail::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--glow);
+            border-radius: 50%;
+            transform-origin: 100px 100px;
+            animation: rotateTrail 3s linear infinite;
+            opacity: 0.5;
+        }
+
+        .coming-soon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        .frequency {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.4);
+            animation: blink 2s infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes scan {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(-30deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(30deg);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateTrail {
+            from {
+                transform: rotate(0deg);
+                opacity: 0.3;
+            }
+            to {
+                transform: rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .loading-text {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 0.2em;
+            white-space: nowrap;
+        }
+
+        .loading-text::after {
+            content: '';
+            animation: dots 2s infinite;
+        }
+
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="telescope">
+        <div class="logo"></div>
+    </div>
+
+    <h1 class="coming-soon">Coming Soon</h1>
+    
+    <div class="loading-ring">
+        <div class="particle"></div>
+        <div class="trail"></div>
+    </div>
+
+    <div class="loading-text">SCANNING FOR SIGNALS</div>
+    
+    <div class="frequency">FREQUENCY: <span id="freq">1420.40575177</span> MHz</div>
+
+    <script>
+        // Add random twinkling stars
+        const stars = document.querySelector('.stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            stars.appendChild(star);
+        }
+
+        // Random frequency generator with microsecond precision
+        function updateFrequency() {
+            const baseFreq = 1420.40575177;
+            const variation = 0.00000001;
+            const newFreq = baseFreq + (Math.random() * variation * 2 - variation);
+            const microsecondVar = Math.random() * 0.000000001;
+            const finalFreq = newFreq + microsecondVar;
+            document.getElementById('freq').textContent = finalFreq.toFixed(12);
+        }
+
+        // Update frequency much faster (50ms = 20 times per second)
+        setInterval(updateFrequency, 50);
+
+        // Initial frequency update
+        updateFrequency();
+    </script>
+</body>
+</html>
