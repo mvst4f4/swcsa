@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWCSA - Coming Soon</title>
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -255,6 +256,23 @@
             animation: dots 2s infinite;
         }
 
+        .youtube-link {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            color: var(--primary);
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .youtube-link:hover {
+            color: #FF0000;
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+        }
+
         @keyframes dots {
             0% { content: ''; }
             25% { content: '.'; }
@@ -281,6 +299,10 @@
     <div class="loading-text">SCANNING FOR SIGNALS</div>
     
     <div class="frequency">FREQUENCY: <span id="freq">1420.40575177</span> MHz</div>
+
+    <a href="https://youtube.com/@spacewave-csa" class="youtube-link" target="_blank">
+        <i class="fab fa-youtube"></i>
+    </a>
 
     <script>
         // Add random twinkling stars
